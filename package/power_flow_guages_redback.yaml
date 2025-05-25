@@ -33,7 +33,7 @@ template:
       - name: Power Flow Gauge - Total Solar
         unique_id: power_flow_gauge_total_solar
         state: >-
-          {{ states('sensor.rb0059_inv_pv_power_instantaneous') | float(0) }}
+          {{ states('sensor.rb0059_inv_pv_power_instantaneous') | float(0) /1000 }}
 
       - name: Power Flow Gauge - Total Grid Import
         unique_id: power_flow_gauge_total_grid_import
@@ -48,12 +48,12 @@ template:
       - name: Power Flow Gauge - Total Battery Discharging
         unique_id: power_flow_gauge_total_battery_discharging
         state: >-
-          {{ states('sensor.red1_battery_total_power_discharge') | float(0) }}
+          {{ states('sensor.red1_battery_total_power_discharge') | float(0) /1000}}
 
       - name: Power Flow Gauge - Total Battery Charging
         unique_id: power_flow_gauge_total_battery_charging
         state: >-
-          {{ states('sensor.red1_battery_total_power_charge') | float(0) }}
+          {{ states('sensor.red1_battery_total_power_charge') | float(0) /1000 }}
 
 ################################################
 # Text input to store values for the power flow gauges to get the data.
